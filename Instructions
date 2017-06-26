@@ -1,0 +1,78 @@
+if(connected)==true
+	p1 = true;
+
+if(connected)==true
+	p2 = true;
+
+rock1 v rock2 = tie
+rock1 v paper2 = p1L, p2W
+rock1 v scissors2 = p1W, p2L
+
+paper1 v paper2 = tie
+paper1 v rock2 = p1W, p2L
+paper1 v scissors2 = p1L, p2W
+
+scissors1 v scissors2 = tie
+scissors1 v rock2 = p1L, p2W
+scissors1 v paper2 = p1W, p2L
+
+$('#rock1').on('click', function(){
+	if(isP1==true){
+		p1_choice = rock1;
+		if(p2_choice == rock2){
+			tie++;
+		}
+		else if(p2_choice == paper2){
+			p1_loss++;
+			p2_win++;
+		}
+		else if(p2_choice == scissors2){
+			p1_win++;
+			p2_loss++;
+		}
+	}
+})
+
+$('#paper1').on('click', function(){
+	if(isP1==true){
+		p1_choice = paper1;
+		if(p2_choice == paper2){
+			tie++;
+		}
+		else if(p2_choice == rock2){
+			p1_win++;
+			p2_loss++;
+		}
+		else if(p2_choice == scissors2){
+			p1_loss++;
+			p2_win++;
+		}
+	}
+})
+
+$('#scissors1').on('click', function(){
+	if(isP1==true){
+		p1_choice = scissors1;
+		if(p2_choice == scissors2){
+			tie++;
+		}
+		else if(p2_choice == rock2){
+			p1_loss++;
+			p2_win++;
+		}
+		else if(p2_choice == paper2){
+			p1_win++;
+			p2_loss++;
+		}
+	}
+})
+
+Flow trace
+P1 has connected
+P2 has connected
+	Click pic
+		Assign choice
+		Wait for p2 choice
+		Win/Lose
+		Repeat
+P has disconnected
